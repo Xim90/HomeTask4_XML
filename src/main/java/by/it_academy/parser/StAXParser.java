@@ -24,7 +24,7 @@ public class StAXParser {
         Journal journal = null;
         try {
             reader = factory.createXMLStreamReader(ClassLoader.getSystemResourceAsStream(ParserConstants.JOURNAL_XML));
-            journal = setJournalByStAXParser(reader);
+            journal = createJournalByStAXParser(reader);
         } catch (XMLStreamException e) {
             e.printStackTrace();
             System.out.println(ExceptionMessage.XML_STREAM_EXCEPTION_LOG);
@@ -32,7 +32,7 @@ public class StAXParser {
         System.out.println(journal);
     }
 
-    private static Journal setJournalByStAXParser(XMLStreamReader reader) throws XMLStreamException {
+    private static Journal createJournalByStAXParser(XMLStreamReader reader) throws XMLStreamException {
         String tagContent = null;
         Journal journal = null;
         Contacts contacts = null;
